@@ -1,0 +1,9 @@
+
+awk 'BEGIN{FS=","} $4 == "standard" {counter++; math += $6; reading += $7; writing += $8} END {print "math avg: " math/counter " reading avg: " reading/counter " writing avg: " writing/counter}' StudentsPerformance.csv
+
+
+
+awk 'BEGIN{FS=","} $3 ~ /bachelor/ {counter++} END {print counter}' StudentsPerformance.csv
+
+
+awk 'BEGIN {print "Success Student List"} {FS=","}  {if($6 ~ /^[0-9]+$/ && $6 >= 80 &&  $7 >= 80 && $8 >= 80) {counter++; print $0}} END {printf "Number of Successful students: %d\n", counter}' StudentsPerformance.csv
